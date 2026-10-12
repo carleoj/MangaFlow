@@ -1,13 +1,12 @@
 {
   "manifest_version": 3,
   "name": "MangaFlow \u2014 Smooth Scrolling",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Adjustable smooth auto-scrolling for long manga and comic pages.",
   "permissions": [
     "storage",
     "activeTab",
-    "scripting",
-    "permissions"
+    "scripting"
   ],
   "action": {
     "default_title": "MangaFlow",
