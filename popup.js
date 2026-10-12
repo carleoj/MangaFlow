@@ -103,3 +103,10 @@ loadSettings().then(async () => {
     }
   }
 });
+
+
+$("disableSite").addEventListener("click", async () => {
+  const result = await sendToPage({ type: "MANGAFLOW_DISABLE_SITE" });
+  if (result?.ok) $("status").textContent = "Disabled on this site";
+  else $("status").textContent = "Open the site and try again";
+});

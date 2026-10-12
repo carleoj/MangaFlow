@@ -8,6 +8,7 @@
   let raf = null;
   let lastTime = 0;
   let hoverPaused = false;
+  let siteDisabled = false;
   let overlay = null;
   let button = null;
   let speedLabel = null;
@@ -15,8 +16,11 @@
   chrome.storage.sync.get(defaults).then(async saved => {
     settings = { ...defaults, ...saved };
     buildOverlay();
-    const { mangaflowEnabledOrigins = [] } = await chrome.storage.local.get({ mangaflowEnabledOrigins: [] });
-    if (mangaflowEnabledOrigins.includes(location.origin)) start();
+    const { mangaflowEnabledOrigins = [], mangaflowDisabledOrigins = [] } =
+      await chrome.storage.local.get({ mangaflowEnabledOrigins: [], mangaflowDisabledOrigins: [] });
+    siteDisabled = mangaflowDisabledOrigins.includes(location.origin);
+    if (!siteDisabled && mangaflowEnabledOrigins.includes(location.origin)) start();
+    else if (siteDisabled && overlay) { overlay.remove(); overlay = null; }
   });
 
   function scrollTarget() {
@@ -129,8 +133,27 @@
   }, true);
 
   chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    if (message.type === "MANGAFLOW_TOGGLE") toggle();
+    if (message.type === "MANGAFLOW_TOGGLE") {
+      siteDisabled = false;
+      chrome.storage.local.get({ mangaflowDisabledOrigins: [] }).then(({mangaflowDisabledOrigins}) => {
+        chrome.storage.local.set({mangaflowDisabledOrigins: mangaflowDisabledOrigins.filter(origin => origin !== location.origin)});
+      });
+      toggle();
+    }
     if (message.type === "MANGAFLOW_STOP") stop();
+    if (message.type === "MANGAFLOW_DISABLE_SITE") {
+      (async () => {
+        await stop();
+        siteDisabled = true;
+        const key = "mangaflowDisabledOrigins";
+        const data = await chrome.storage.local.get({ [key]: [] });
+        const disabled = new Set(data[key]); disabled.add(location.origin);
+        await chrome.storage.local.set({ [key]: [...disabled] });
+        if (overlay) { overlay.remove(); overlay = null; }
+        sendResponse({ ok: true, disabled: true });
+      })();
+      return true;
+    }
     if (message.type === "MANGAFLOW_SETTINGS") {
       settings = { ...settings, ...message.settings };
       if (message.settings.speed !== undefined) chrome.storage.sync.set({ speed: settings.speed });

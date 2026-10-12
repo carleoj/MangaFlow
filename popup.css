@@ -23,3 +23,5 @@ footer{display:flex;justify-content:space-between;align-items:center;border-top:
 kbd{border:1px solid #3a4554;background:#202936;padding:2px 5px;border-radius:4px;color:#e9eef7}
 .note{color:#8795a8;font-size:10px;line-height:1.45;margin:11px 0 0}
 button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #8cb4ff;outline-offset:2px}
+
+.site-controls{grid-template-columns:1fr;margin-top:-10px}.site-controls button{background:#222833;color:#d7dfeb;border:1px solid #354052}

@@ -1,22 +1,17 @@
 {
   "manifest_version": 3,
-  "name": "MangaFlow — Smooth Scrolling",
-  "version": "1.3.0",
+  "name": "MangaFlow \u2014 Smooth Scrolling",
+  "version": "1.4.0",
   "description": "Adjustable smooth auto-scrolling for long manga and comic pages.",
   "permissions": [
     "storage",
     "activeTab",
-    "scripting"
+    "scripting",
+    "permissions"
   ],
   "action": {
-    "default_title": "MangaFlow — Smooth Scrolling",
+    "default_title": "MangaFlow",
     "default_popup": "popup.html"
-  },
-  "icons": {
-    "16": "icons/icon16.png",
-    "32": "icons/icon32.png",
-    "48": "icons/icon48.png",
-    "128": "icons/icon128.png"
   },
   "background": {
     "service_worker": "background.js"
@@ -41,6 +36,7 @@
       "description": "Decrease MangaFlow speed"
     }
   },
+  "host_permissions": [],
   "optional_host_permissions": [
     "http://*/*",
     "https://*/*"
