@@ -10,9 +10,7 @@ MangaFlow gives you control over how you scroll, with customizable speeds, conve
 - **Start, pause, and resume** — Control scrolling whenever you need to.
 - **Keyboard shortcuts** — Adjust speed and toggle scrolling without opening the extension popup.
 - **Automatic resume** — Resume scrolling after page reloads or navigation on sites where permission has been granted.
-- **Persistent settings** — Retain your preferences between sessions.
 - **Per-site permissions** — Request website access when needed instead of requiring access to every website upon installation.
-- **Lightweight and simple** — Designed to provide scrolling controls without unnecessary complexity.
 
 ## Keyboard Shortcuts
 
