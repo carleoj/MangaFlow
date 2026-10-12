@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MangaFlow</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="app">
+    <header class="brand">
+      <div class="logo" aria-hidden="true">≋</div>
+      <div><h1>MangaFlow</h1><p>Smooth scrolling for manga</p></div>
+    </header>
+
+    <section class="controls">
+      <button id="toggle" class="primary">▶ Enable site & start</button>
+      <button id="stop" class="secondary">■ Stop</button>
+    </section>
+
+    <section class="setting">
+      <div class="label-row"><label for="speed">Scroll speed</label><strong><span id="speedValue">35</span> px/s</strong></div>
+      <input id="speed" type="range" min="5" max="200" step="5" value="35">
+      <div class="range-labels"><span>5</span><span>200</span></div>
+    </section>
+
+    <section class="setting">
+      <label for="mode">Scroll mode</label>
+      <select id="mode">
+        <option value="continuous">Continuous (smooth)</option>
+        <option value="page">Page by page</option>
+      </select>
+    </section>
+
+    <section class="options">
+      <h2>Options</h2>
+      <label class="check"><input id="pauseHover" type="checkbox" checked> Pause while pointer is over page</label>
+      <label class="check"><input id="floating" type="checkbox" checked> Show floating controls</label>
+    </section>
+
+    <footer>
+      <span id="status" role="status">Ready</span>
+      <span>Shortcut: <kbd>Alt</kbd> + <kbd>S</kbd></span>
+    </footer>
+    <p class="note">Works best on long, vertically scrolling pages. Some sites use custom readers that may need compatibility adjustments.</p>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

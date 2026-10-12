@@ -1,0 +1,25 @@
+*{box-sizing:border-box}
+:root{color-scheme:dark;--bg:#0e131b;--panel:#171f2a;--line:#2b3543;--text:#f4f7fb;--muted:#aab6c7;--blue:#3478f6}
+body{margin:0;width:320px;background:var(--bg);color:var(--text);font:14px/1.4 system-ui,-apple-system,Segoe UI,sans-serif}
+.app{padding:17px}
+.brand{display:flex;align-items:center;gap:11px;margin-bottom:18px}
+.logo{display:grid;place-items:center;width:43px;height:43px;border-radius:13px;background:var(--blue);font-size:29px;font-weight:700;line-height:1}
+h1{font-size:19px;margin:0;font-weight:750;letter-spacing:-.4px}
+.brand p{margin:2px 0 0;color:var(--muted);font-size:12px}
+.controls{display:grid;grid-template-columns:1fr 84px;gap:8px;margin-bottom:19px}
+button{border:0;border-radius:10px;padding:11px 9px;font:600 13px system-ui;cursor:pointer}
+.primary{background:var(--blue);color:white}.secondary{background:#252e3a;color:#e4eaf2}
+.setting{margin:17px 0}
+label,.label-row{font-weight:650}
+.label-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}
+.label-row strong{font-size:12px;color:#d7e4ff}
+input[type=range]{width:100%;accent-color:var(--blue);cursor:pointer}
+.range-labels{display:flex;justify-content:space-between;color:var(--muted);font-size:11px;margin-top:2px}
+select{display:block;width:100%;margin-top:8px;padding:10px;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:9px}
+.options{padding-top:2px}.options h2{font-size:13px;margin:0 0 10px}
+.check{display:flex;align-items:center;gap:8px;font-weight:450;margin:9px 0;color:#dbe2ec}
+input[type=checkbox]{accent-color:var(--blue);width:15px;height:15px}
+footer{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:12px;margin-top:15px;color:var(--muted);font-size:11px}
+kbd{border:1px solid #3a4554;background:#202936;padding:2px 5px;border-radius:4px;color:#e9eef7}
+.note{color:#8795a8;font-size:10px;line-height:1.45;margin:11px 0 0}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #8cb4ff;outline-offset:2px}
